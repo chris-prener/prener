@@ -12,5 +12,5 @@
 #'
 #' @export
 probt <- function(t, df) {
-  2*pt(-abs(t), df = df)
+  2*stats::pt(-abs(t), df = df)
 }
