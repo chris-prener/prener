@@ -2,12 +2,12 @@
 #'
 #' This function returns the p-value for a t-test.
 #'
-#' @useage probt(t, df)
+#' @usage probt(t, df)
 #'
 #' @param t t value calculated from the given test
 #' @param df Degrees of freedom
 #'
-#' @example
+#' @examples
 #' probt(3.6308, dof = 72)
 #'
 #' @export
