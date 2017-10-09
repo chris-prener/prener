@@ -8,7 +8,7 @@
 #' @param df Degrees of freedom
 #'
 #' @examples
-#' probt(3.6308, dof = 72)
+#' probt(3.6308, df = 72)
 #'
 #' @export
 probt <- function(t, df) {

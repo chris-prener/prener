@@ -15,6 +15,6 @@ probt(t, df)
 This function returns the p-value for a t-test.
 }
 \examples{
-probt(3.6308, dof = 72)
+probt(3.6308, df = 72)
 
 }
