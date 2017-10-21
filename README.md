@@ -113,6 +113,8 @@ The output is modeled on the [`stargazer` package](https://cran.r-project.org/we
 
 ![texTableExample](man/figures/texTableExample.png)
 
+Both the [`multirow`](https://ctan.org/pkg/multirow) and [`hhline`](https://ctan.org/pkg/hhline) packages must be loaded in the preamble of your LaTeX document. The `type = "doc"` output will include these, but if you are adding a table to a pre-existing document, be sure to add them!
+
 ### Statistics
 
 `prener` includes a helper function for calculating p-values under the t-distribution:
