@@ -1,9 +1,9 @@
-#' freqTable
+#' Tidy Frequency Tables
 #'
-#' \code{freqTable} returns a frequency table with counts and percentages of values
+#' \code{cp_tidyTable} returns a frequency table with counts and percentages of values
 #'   from an atomic vector of type character, integer, double, or logical
 #'
-#' @usage freqTable(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE)
+#' @usage cp_tidyTable(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE)
 #'
 #' @param dataVector an atomic vector of type character, integer, double, or logical
 #' @param sortByCount boolean value that determines if output will be sorted by count or name
@@ -11,7 +11,7 @@
 #' @param missRow a boolean value that determines if the NA row is displayed
 #' @param totalRow boolean value that determines if the output will have a summary row appended
 #'
-#' @return a data_frame containing the counts and percentages of each value from the provided data
+#' @return a tibble containing the counts and percentages of each value from the provided data
 #'
 #' @source \href{https://cran.r-project.org/web/packages/frequencies/index.html}{\code{frequencies} package} (\href{https://cran.r-project.org/web/licenses/GPL-3}{source code released under GPL-3 license})
 #'
@@ -26,16 +26,16 @@
 #'    stringsAsFactors = FALSE
 #'    )
 #'
-#' freqTable(tableData$nhoodStr)
-#' freqTable(tableData$nhoodStr, round = 2)
-#' freqTable(tableData$visit, round = 2, missRow = TRUE)
-#' freqTable(tableData$visit, round = 2, missRow = FALSE)
-#' freqTable(tableData$type, round = 3, sortByCount = FALSE)
-#' freqTable(tableData$type, round = 3, sortByCount = TRUE)
+#' cp_tidyTable(tableData$nhoodStr)
+#' cp_tidyTable(tableData$nhoodStr, round = 2)
+#' cp_tidyTable(tableData$visit, round = 2, missRow = TRUE)
+#' cp_tidyTable(tableData$visit, round = 2, missRow = FALSE)
+#' cp_tidyTable(tableData$type, round = 3, sortByCount = FALSE)
+#' cp_tidyTable(tableData$type, round = 3, sortByCount = TRUE)
 #'
 #' @export
 
-freqTable <- function(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE) {
+cp_tidyTable <- function(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE) {
 
   # To prevent NOTE from R CMD check 'no visible binding for global variable'
   dataFrame = data = n = total = Percentage = Cum. = NULL
