@@ -4,7 +4,7 @@
 \alias{cp_plotSave}
 \title{Saving Plots at Prespecified Size and Resolution}
 \usage{
-cp_plotSave(filename, plot, preset = c("sm", "med", "lg"))
+cp_plotSave(filename, plot, preset = c("sm", "med", "lg"), dpi = 300)
 }
 \arguments{
 \item{filename}{File name to create on disk; must be quoted}
@@ -12,6 +12,8 @@ cp_plotSave(filename, plot, preset = c("sm", "med", "lg"))
 \item{plot}{Plot to save, defaults to last plot displayed if no plot included}
 
 \item{preset}{Preset size ("sm", "med", "lg")}
+
+\item{dpi}{Dots per inch for plot}
 }
 \value{
 Saves a file to the disk in the pre-determined size. \code{preset = "sm"}
