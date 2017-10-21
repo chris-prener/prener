@@ -10,22 +10,22 @@
 cp_tidyTable(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE)
 }
 \arguments{
-\item{dataVector}{an atomic vector of type character, integer, double, or logical}
+\item{dataVector}{Character, integer, double, or logical atomic vector}
 
-\item{sortByCount}{boolean value that determines if output will be sorted by count or name}
+\item{sortByCount}{Logical scalar that determines if output will be sorted by count or name}
 
-\item{round}{an integer value that determines the number of decimal places displayed}
+\item{round}{Number of decimal places displayed}
 
-\item{missRow}{a boolean value that determines if the NA row is displayed}
+\item{missRow}{Logical scalar that determines if the NA row is displayed}
 
-\item{totalRow}{boolean value that determines if the output will have a summary row appended}
+\item{totalRow}{Logical scalar that determines if the output will have a summary row appended}
 }
 \value{
 a tibble containing the counts and percentages of each value from the provided data
 }
 \description{
 \code{cp_tidyTable} returns a frequency table with counts and percentages of values
-  from an atomic vector of type character, integer, double, or logical
+  from a character, integer, double, or logical atomic vector
 }
 \examples{
 tableData <- data.frame(

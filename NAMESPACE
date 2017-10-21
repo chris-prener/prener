@@ -3,6 +3,7 @@
 export(cp_plotSave)
 export(cp_points)
 export(cp_probt)
+export(cp_texTable)
 export(cp_tidyTable)
 importFrom(dplyr,"%>%")
 importFrom(ggplot2,ggsave)

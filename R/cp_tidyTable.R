@@ -1,15 +1,15 @@
 #' Tidy Frequency Tables
 #'
 #' \code{cp_tidyTable} returns a frequency table with counts and percentages of values
-#'   from an atomic vector of type character, integer, double, or logical
+#'   from a character, integer, double, or logical atomic vector
 #'
 #' @usage cp_tidyTable(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE)
 #'
-#' @param dataVector an atomic vector of type character, integer, double, or logical
-#' @param sortByCount boolean value that determines if output will be sorted by count or name
-#' @param round an integer value that determines the number of decimal places displayed
-#' @param missRow a boolean value that determines if the NA row is displayed
-#' @param totalRow boolean value that determines if the output will have a summary row appended
+#' @param dataVector Character, integer, double, or logical atomic vector
+#' @param sortByCount Logical scalar that determines if output will be sorted by count or name
+#' @param round Number of decimal places displayed
+#' @param missRow Logical scalar that determines if the NA row is displayed
+#' @param totalRow Logical scalar that determines if the output will have a summary row appended
 #'
 #' @return a tibble containing the counts and percentages of each value from the provided data
 #'
