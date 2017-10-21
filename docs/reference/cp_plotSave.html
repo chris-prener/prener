@@ -88,7 +88,7 @@
 correspond to the possible graphics sizes in my lecture and presentation slides.</p>
     
 
-    <pre class="usage"><span class='fu'>cp_plotSave</span>(<span class='no'>filename</span>, <span class='no'>plot</span>, <span class='kw'>preset</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"sm"</span>, <span class='st'>"med"</span>, <span class='st'>"lg"</span>), <span class='kw'>dpi</span> <span class='kw'>=</span> <span class='fl'>300</span>)</pre>
+    <pre class="usage"><span class='fu'>cp_plotSave</span>(<span class='no'>filename</span>, <span class='no'>plot</span>, <span class='kw'>device</span> <span class='kw'>=</span> <span class='st'>"png"</span>, <span class='kw'>preset</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"sm"</span>, <span class='st'>"med"</span>, <span class='st'>"lg"</span>), <span class='kw'>dpi</span> <span class='kw'>=</span> <span class='fl'>300</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -100,6 +100,12 @@ correspond to the possible graphics sizes in my lecture and presentation slides.
     <tr>
       <th>plot</th>
       <td><p>Plot to save, defaults to last plot displayed if no plot included</p></td>
+    </tr>
+    <tr>
+      <th>device</th>
+      <td><p>Device to use. Can be either be a device function (e.g. <code>png</code>),
+or one of "eps", "ps", "tex" (pictex), "pdf", "jpeg", "tiff", "png", "bmp",
+"svg" or "wmf" (windows only).</p></td>
     </tr>
     <tr>
       <th>preset</th>
