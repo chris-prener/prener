@@ -3,6 +3,8 @@
 prener <img src="man/figures/logo.png" align="right" />
 =======================================================
 
+[![Travis-CI Build Status](https://travis-ci.org/chris-prener/prener.svg?branch=master)](https://travis-ci.org/chris-prener/prener) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chris-prener/prener?branch=master&svg=true)](https://ci.appveyor.com/project/chris-prener/prener)
+
 The goal of `prener` is to document functions that I use frequently in my own research and teaching.
 
 Installation
