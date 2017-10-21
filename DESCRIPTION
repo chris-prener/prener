@@ -14,3 +14,4 @@ BugReports: https://github.com/chris-prener/prener/issues
 RoxygenNote: 6.0.1
 Imports: ggplot2,
     dplyr
+Suggests: testthat
