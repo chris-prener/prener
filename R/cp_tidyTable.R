@@ -38,7 +38,7 @@
 cp_tidyTable <- function(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE) {
 
   # To prevent NOTE from R CMD check 'no visible binding for global variable'
-  dataFrame = data = n = total = Percentage = Cum. = NULL
+  dataFrame = data = n = total = Percentage = Cum. = Count = NULL
 
   # Check validity of dataVector argument. The argument needs to be a string and the data frame needs to exist.
   if (!is.atomic(dataFrame)) return(stop('freq_vect requires an atomic vector.'))
@@ -86,6 +86,10 @@ cp_tidyTable <- function(dataVector, sortByCount = FALSE, round = 1, missRow = T
     result[,1] <- lapply(result[,1], as.character)
     result <- rbind.data.frame(result,c('Total', sum(result$Count), x, ""))
   }
+
+  result <- result %>%
+    dplyr::mutate(data = as.character(data)) %>%
+    dplyr::mutate(Count = as.character(Count))
 
   return(result)
 }
