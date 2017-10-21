@@ -1,0 +1,50 @@
+---
+title: "Plotting Tools"
+author: "Christopher Prener"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+`prener` includes a number of functions that I use in conjunction with `ggplot2`. The package includes a tool for implementing points as a unit of measure in `ggplot2` as well as standardized export options.
+
+## Sizing Plots
+One issue I address is that `ggsave()` does not accept measurements for `width` and `height` in points, but Keynote lays slides out using points as the unit of measurement. The `cp_points()` function will convert points to inches, centimeters, or millimeters (the units used by `ggsave()`).
+
+```{r}
+cp_points(200, units = "in")
+cp_points(200, units = "cm")
+cp_points(200, units = "mm")
+```
+
+These functions can be embedded directly in `ggsave()` calls:
+
+```{r, eval=FALSE}
+p <- ggplot(mpg, aes(hwy)) + geom_histogram()
+
+ggsave("hwy", p, device = "png", 
+       width = cp_points(500, units = "mm"), 
+       height = cp_points(375, units = "mm"), 
+       units = "mm", dpi = 300)
+```
+
+## Standardized Export Options
+
+The [Keynote templates](https://github.com/chris-prener/sequoia_templates) that I use for teaching and presentations have three standard sizes that I create plots for - small (960 x 540 points), medium (960 x 630 points), and large (1024 by 768 points). The `cp_plotSave()` function will export `ggplot2` plots at these dimensions. By default, these are done at 300 dots per inch but that can also be adjusted:
+
+```{r, eval=FALSE}
+p <- ggplot(mpg, aes(hwy)) + geom_histogram()
+
+cp_plotSave("hwy", p, preset = "sm")
+cp_plotSave("hwy", p, preset = "med")
+cp_plotSave("hwy", p, preset = "lg", dpi = 500)
+```
+
+If no `device` is specified, plots will be exported as `.png` files. Other output options may be specified using `device`:
+
+```{r, eval=FALSE}
+cp_plotSave("hwy", p, device = "pdf", preset = "lg", dpi = 500)
+```

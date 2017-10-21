@@ -15,4 +15,7 @@ RoxygenNote: 6.0.1
 Imports: ggplot2,
     dplyr
 Suggests: testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
