@@ -3,48 +3,68 @@
 #' \code{freqTable} returns a frequency table with counts and percentages of values
 #'   from an atomic vector of type character, integer, double, or logical
 #'
-#' @param data_vector   an atomic vector of type character, integer, double, or logical
-#' @param sort_by_count   boolean value that determines if output will be sorted by count or name
-#' @param round   an integer value that determines the number of decimal places displayed
-#' @param miss_row   a boolean value that determines if the NA row is displayed
-#' @param total_row   a boolean value that determines if the output will have a summary row appended
+#' @usage freqTable(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE)
+#'
+#' @param dataVector an atomic vector of type character, integer, double, or logical
+#' @param sortByCount boolean value that determines if output will be sorted by count or name
+#' @param round an integer value that determines the number of decimal places displayed
+#' @param missRow a boolean value that determines if the NA row is displayed
+#' @param totalRow boolean value that determines if the output will have a summary row appended
 #'
 #' @return a data_frame containing the counts and percentages of each value from the provided data
 #'
-#' @source \href{https://cran.r-project.org/web/packages/frequencies/index.html}{\code{frequencies} package} (\href{https://cran.r-project.org/web/licenses/GPL-3}{released under GPL-3 license})
+#' @source \href{https://cran.r-project.org/web/packages/frequencies/index.html}{\code{frequencies} package} (\href{https://cran.r-project.org/web/licenses/GPL-3}{source code released under GPL-3 license})
 #'
 #' @importFrom dplyr "%>%"
 #'
+#' @examples
+#' tableData <- data.frame(
+#'    id = c(1, 2, 3, 4, 5, 6),
+#'    nhoodStr = c("Patch", "Bevo Mill", "Bevo Mill", "Lindenwood Park", "Carondelet" , "Shaw"),
+#'    visit = c(TRUE, FALSE, FALSE, TRUE, TRUE, NA),
+#'    type = as.factor(c("A", "B", "B", "A", "B", "B")),
+#'    stringsAsFactors = FALSE
+#'    )
+#'
+#' freqTable(tableData$nhoodStr)
+#' freqTable(tableData$nhoodStr, round = 2)
+#' freqTable(tableData$visit, round = 2, missRow = TRUE)
+#' freqTable(tableData$visit, round = 2, missRow = FALSE)
+#' freqTable(tableData$type, round = 3, sortByCount = FALSE)
+#' freqTable(tableData$type, round = 3, sortByCount = TRUE)
+#'
 #' @export
 
-freqTable <- function(data_vector, sort_by_count = FALSE, round = 1, miss_row = TRUE, total_row = TRUE) {
+freqTable <- function(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE) {
 
   # To prevent NOTE from R CMD check 'no visible binding for global variable'
-  data = n = total = Percentage = Cum. = NULL
+  dataFrame = data = n = total = Percentage = Cum. = NULL
 
-  # Check validity of data_vector argument. The argument needs to be a string and the data frame needs to exist.
-  if (!is.atomic(data_vector)) return(stop('freq_vect requires an atomic vector.'))
+  # Check validity of dataVector argument. The argument needs to be a string and the data frame needs to exist.
+  if (!is.atomic(dataFrame)) return(stop('freq_vect requires an atomic vector.'))
 
-  if (!(typeof(data_vector) %in% c('logical', 'integer', 'double','character'))) {
+  if (!(typeof(dataVector) %in% c('logical', 'integer', 'double','character'))) {
     return(stop('Vector not of acceptable data type. Needs to be of type logical, integer, double, or character.'))
   }
 
-  if (length(data_vector) < 2) return(stop('Vector needs a length greater than 1.'))
+  if (length(dataVector) < 2) return(stop('Vector needs a length greater than 1.'))
 
 
-  # Check if sort_by_count is set.
-  if (!is.logical(sort_by_count)) sort_by_count <- TRUE
-  sort_by <- ifelse(sort_by_count, 'desc(n)', 'data')
+  # Check if sortByCount is set
+  if (!is.logical(sortByCount)) sortByCount <- TRUE
+  sort_by <- ifelse(sortByCount, 'desc(n)', 'data')
 
-  df <- data.frame(data = data_vector, stringsAsFactors = FALSE)
-
+  # Create data frame
+  df <- data.frame(data = dataVector, stringsAsFactors = FALSE)
   result <- dplyr::count(df, data)
 
-  if (!is.logical(miss_row)) miss_row <- TRUE
-  if (miss_row == FALSE) {
+  # Check if missRow is set
+  if (!is.logical(missRow)) missRow <- TRUE
+  if (missRow == FALSE) {
     result <- dplyr::filter(result, data != "<NA>")
   }
 
+  # Create table
   result <- result %>%
     dplyr::mutate(total = sum(n)) %>%
     dplyr::group_by(data) %>%
@@ -59,8 +79,9 @@ freqTable <- function(data_vector, sort_by_count = FALSE, round = 1, miss_row = 
                   Percentage,
                   Cum.)
 
-  if (!is.logical(total_row)) total_row <- TRUE
-  if (total_row) {
+  # Create total row
+  if (!is.logical(totalRow)) totalRow <- TRUE
+  if (totalRow) {
     x <- formatC(100, digits = round, format = "f")
     result[,1] <- lapply(result[,1], as.character)
     result <- rbind.data.frame(result,c('Total', sum(result$Count), x, ""))

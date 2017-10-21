@@ -4,22 +4,21 @@
 \alias{freqTable}
 \title{freqTable}
 \source{
-\href{https://cran.r-project.org/web/packages/frequencies/index.html}{\code{frequencies} package} (\href{https://cran.r-project.org/web/licenses/GPL-3}{released under GPL-3 license})
+\href{https://cran.r-project.org/web/packages/frequencies/index.html}{\code{frequencies} package} (\href{https://cran.r-project.org/web/licenses/GPL-3}{source code released under GPL-3 license})
 }
 \usage{
-freqTable(data_vector, sort_by_count = FALSE, round = 1, miss_row = TRUE,
-  total_row = TRUE)
+freqTable(dataVector, sortByCount = FALSE, round = 1, missRow = TRUE, totalRow = TRUE)
 }
 \arguments{
-\item{data_vector}{an atomic vector of type character, integer, double, or logical}
+\item{dataVector}{an atomic vector of type character, integer, double, or logical}
 
-\item{sort_by_count}{boolean value that determines if output will be sorted by count or name}
+\item{sortByCount}{boolean value that determines if output will be sorted by count or name}
 
 \item{round}{an integer value that determines the number of decimal places displayed}
 
-\item{miss_row}{a boolean value that determines if the NA row is displayed}
+\item{missRow}{a boolean value that determines if the NA row is displayed}
 
-\item{total_row}{a boolean value that determines if the output will have a summary row appended}
+\item{totalRow}{boolean value that determines if the output will have a summary row appended}
 }
 \value{
 a data_frame containing the counts and percentages of each value from the provided data
@@ -27,4 +26,21 @@ a data_frame containing the counts and percentages of each value from the provid
 \description{
 \code{freqTable} returns a frequency table with counts and percentages of values
   from an atomic vector of type character, integer, double, or logical
+}
+\examples{
+tableData <- data.frame(
+   id = c(1, 2, 3, 4, 5, 6),
+   nhoodStr = c("Patch", "Bevo Mill", "Bevo Mill", "Lindenwood Park", "Carondelet" , "Shaw"),
+   visit = c(TRUE, FALSE, FALSE, TRUE, TRUE, NA),
+   type = as.factor(c("A", "B", "B", "A", "B", "B")),
+   stringsAsFactors = FALSE
+   )
+
+freqTable(tableData$nhoodStr)
+freqTable(tableData$nhoodStr, round = 2)
+freqTable(tableData$visit, round = 2, missRow = TRUE)
+freqTable(tableData$visit, round = 2, missRow = FALSE)
+freqTable(tableData$type, round = 3, sortByCount = FALSE)
+freqTable(tableData$type, round = 3, sortByCount = TRUE)
+
 }
