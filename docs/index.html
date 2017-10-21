@@ -37,6 +37,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/plots.html">Plotting Tools</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -81,19 +93,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="plotting" class="section level3">
 <h3 class="hasAnchor">
 <a href="#plotting" class="anchor"></a>Plotting</h3>
-<p><code>prener</code> includes a number of functions that I use in conjunction with <code>ggplot2</code>. One issue I address is that <code>ggsave()</code> does not accept measurements for <code>width</code> and <code>height</code> in points, but Keynote lays slides out using points as the unit of measurement. The <code><a href="reference/cp_points.html">cp_points()</a></code> function will convert points to inches, centimeters, or millimeters (the units used by <code>ggsave()</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"in"</span>)
-<span class="co">#&gt; [1] 2.77778</span>
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"cm"</span>)
-<span class="co">#&gt; [1] 7.05556</span>
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"mm"</span>)
-<span class="co">#&gt; [1] 70.5556</span></code></pre></div>
-<p>The <a href="https://github.com/chris-prener/sequoia_templates">Keynote templates</a> that I use for teaching and presentations have three standard sizes that I create plots for - small (960 x 540 points), medium (960 x 630 points), and large (1024 by 768 points). The <code><a href="reference/cp_plotSave.html">cp_plotSave()</a></code> function will export <code>ggplot2</code> plots at these dimensions. By default, these are done at 300 dots per inch but that can also be adjusted:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(hwy)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()
-
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_plotSave">cp_plotSave</a></span>(<span class="st">"hwy.png"</span>, p, <span class="dt">preset =</span> <span class="st">"sm"</span>)
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_plotSave">cp_plotSave</a></span>(<span class="st">"hwy.png"</span>, p, <span class="dt">preset =</span> <span class="st">"med"</span>)
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_plotSave">cp_plotSave</a></span>(<span class="st">"hwy.png"</span>, p, <span class="dt">preset =</span> <span class="st">"lg"</span>, <span class="dt">dpi =</span> <span class="dv">500</span>)</code></pre></div>
+<p><code>prener</code> includes a number of functions that I use in conjunction with <code>ggplot2</code>, including a function (<code><a href="reference/cp_points.html">cp_points()</a></code>) for converting measurements from points to inches, centimeters, and millimeters and a function (<code><a href="reference/cp_plotSave.html">cp_plotSave()</a></code>) for standardized export options.</p>
 </div>
 <div id="tables" class="section level3">
 <h3 class="hasAnchor">
