@@ -60,9 +60,9 @@ tableData <- data.frame(
 
 prener::cp_tidyTable(tableData$nhoodStr)
 
-prener::cp_tidyTable(tableData$visit)
+prener::cp_tidyTable(tableData$visit, round = 3)
 
-prener::cp_tidyTable(tableData$visit, missRow = FALSE)
+prener::cp_tidyTable(tableData$visit, round = 2, missRow = FALSE)
 ```
 
 The package also provides a function for converting tidy tables into LaTeX-formatted frequency tables. The function can either create a full LaTeX document (`type = "doc"`), only the LaTeX table (`type = "table"`), or only the applicable rows with values (`type = "row"`). The last option can be used for creating a LaTeX table with multiple sections for different discrete variables.

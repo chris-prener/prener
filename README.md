@@ -63,22 +63,22 @@ prener::cp_tidyTable(tableData$nhoodStr)
 #> 5            Shaw     1       16.7 100.0
 #> 6           Total     6      100.0
 
-prener::cp_tidyTable(tableData$visit)
+prener::cp_tidyTable(tableData$visit, round = 3)
 #> # A tibble: 4 x 4
-#>    data Count Percentage  Cum.
-#>   <chr> <chr>      <chr> <chr>
-#> 1 FALSE     2       33.3  33.3
-#> 2  TRUE     3       50.0  83.3
-#> 3  <NA>     1       16.7 100.0
-#> 4 Total     6      100.0
+#>    data Count Percentage    Cum.
+#>   <chr> <chr>      <chr>   <chr>
+#> 1 FALSE     2     33.333  33.333
+#> 2  TRUE     3     50.000  83.333
+#> 3  <NA>     1     16.667 100.000
+#> 4 Total     6    100.000
 
-prener::cp_tidyTable(tableData$visit, missRow = FALSE)
+prener::cp_tidyTable(tableData$visit, round = 2, missRow = FALSE)
 #> # A tibble: 3 x 4
-#>    data Count Percentage  Cum.
-#>   <chr> <chr>      <chr> <chr>
-#> 1 FALSE     2       40.0  40.0
-#> 2  TRUE     3       60.0 100.0
-#> 3 Total     5      100.0
+#>    data Count Percentage   Cum.
+#>   <chr> <chr>      <chr>  <chr>
+#> 1 FALSE     2      40.00  40.00
+#> 2  TRUE     3      60.00 100.00
+#> 3 Total     5     100.00
 ```
 
 The package also provides a function for converting tidy tables into LaTeX-formatted frequency tables. The function can either create a full LaTeX document (`type = "doc"`), only the LaTeX table (`type = "table"`), or only the applicable rows with values (`type = "row"`). The last option can be used for creating a LaTeX table with multiple sections for different discrete variables.
