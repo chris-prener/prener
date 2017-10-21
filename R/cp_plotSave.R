@@ -3,10 +3,13 @@
 #' This function is a wrapper around \code{ggsave()} that uses pre-specified values which
 #' correspond to the possible graphics sizes in my lecture and presentation slides.
 #'
-#' @usage cp_plotSave(filename, plot, preset = c("sm", "med", "lg"), dpi = 300)
+#' @usage cp_plotSave(filename, plot, device = "png", preset = c("sm", "med", "lg"), dpi = 300)
 #'
 #' @param filename File name to create on disk; must be quoted
 #' @param plot Plot to save, defaults to last plot displayed if no plot included
+#' @param device Device to use. Can be either be a device function (e.g. \code{png}),
+#'     or one of "eps", "ps", "tex" (pictex), "pdf", "jpeg", "tiff", "png", "bmp",
+#'     "svg" or "wmf" (windows only).
 #' @param preset Preset size ("sm", "med", "lg")
 #' @param dpi Dots per inch for plot
 #'
@@ -25,7 +28,7 @@
 #' @importFrom ggplot2 ggsave
 #'
 #' @export
-cp_plotSave <- function(filename, plot, preset = c("sm", "med", "lg"), dpi = 300){
+cp_plotSave <- function(filename, plot, device = "png", preset = c("sm", "med", "lg"), dpi = 300){
   if (missing(plot)) {
     plotDef <- last_plot()
   } else {
@@ -37,17 +40,17 @@ cp_plotSave <- function(filename, plot, preset = c("sm", "med", "lg"), dpi = 300
   }
 
   if (preset == "sm"){
-    ggsave(filename, plotDef,
+    ggsave(filename, plotDef, device = device,
            width = cp_points(960, units = "mm"),
            height = cp_points(540, units = "mm"),
            units = "mm", dpi = dpi)
   } else if (preset == "med"){
-    ggsave(filename, plotDef,
+    ggsave(filename, plotDef, device = device,
            width = cp_points(960, units = "mm"),
            height = cp_points(630, units = "mm"),
            units = "mm", dpi = dpi)
   } else if (preset == "lg"){
-    ggsave(filename, plotDef,
+    ggsave(filename, plotDef, device = device,
            width = cp_points(1024, units = "mm"),
            height = cp_points(768, units = "mm"),
            units = "mm", dpi = dpi)

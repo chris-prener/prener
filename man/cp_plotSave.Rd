@@ -4,12 +4,16 @@
 \alias{cp_plotSave}
 \title{Saving Plots at Prespecified Size and Resolution}
 \usage{
-cp_plotSave(filename, plot, preset = c("sm", "med", "lg"), dpi = 300)
+cp_plotSave(filename, plot, device = "png", preset = c("sm", "med", "lg"), dpi = 300)
 }
 \arguments{
 \item{filename}{File name to create on disk; must be quoted}
 
 \item{plot}{Plot to save, defaults to last plot displayed if no plot included}
+
+\item{device}{Device to use. Can be either be a device function (e.g. \code{png}),
+or one of "eps", "ps", "tex" (pictex), "pdf", "jpeg", "tiff", "png", "bmp",
+"svg" or "wmf" (windows only).}
 
 \item{preset}{Preset size ("sm", "med", "lg")}
 
