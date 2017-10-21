@@ -91,9 +91,9 @@ tableData <- data.frame(
     stringsAsFactors = FALSE
     )
 
-prener::cp_texTable(tableData, "visit", type = "table")
+prener::cp_texTable(tableData, "visit", type = "table", title = "Neighborhoods Visited")
 #> \begin{table}[!htbp] \centering
-#> \caption{  }
+#> \caption{ Neighborhoods Visited }
 #> \label{}
 #> \begin{tabular}{@{\extracolsep{5pt}} llrrr} 
 #> \\[-1.8ex]\hline 
@@ -108,6 +108,10 @@ prener::cp_texTable(tableData, "visit", type = "table")
 #> \end{tabular}
 #> \end{table}
 ```
+
+The output is modeled on the [`stargazer` package](https://cran.r-project.org/web/packages/stargazer/):
+
+![texTableExample](man/figures/texTableExample.png)
 
 ### Statistics
 
