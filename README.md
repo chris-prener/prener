@@ -3,14 +3,14 @@
 prener <img src="man/figures/logo.png" align="right" />
 =======================================================
 
-[![Travis-CI Build Status](https://travis-ci.org/chris-prener/prener.svg?branch=master)](https://travis-ci.org/chris-prener/prener) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chris-prener/prener?branch=master&svg=true)](https://ci.appveyor.com/project/chris-prener/prener)
+[![Travis-CI Build Status](https://travis-ci.org/chris-prener/prener.svg?branch=master)](https://travis-ci.org/chris-prener/prener) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chris-prener/prener?branch=master&svg=true)](https://ci.appveyor.com/project/chris-prener/prener) [![codecov](https://codecov.io/gh/chris-prener/prener/branch/master/graph/badge.svg)](https://codecov.io/gh/chris-prener/prener) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/prener)](https://cran.r-project.org/package=prener)
 
 The goal of `prener` is to document functions that I use frequently in my own research and teaching.
 
 Installation
 ------------
 
-`prener` is not available from CRAN (and never will be!). You can install `prener` from [Github](https://github.com/chris-prener/prener) with `devtools`:
+`prener` is not available from CRAN (and likely never will be!). You can install `prener` from [Github](https://github.com/chris-prener/prener) with `devtools`:
 
 ``` r
 # install.packages("devtools")
