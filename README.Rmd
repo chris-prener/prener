@@ -27,5 +27,15 @@ The goal of `prener` is to document functions that I use frequently in my own re
 devtools::install_github("chris-prener/prener")
 ```
 
+## Useage
+### Plotting
+`prener` includes a number of functions that I use in conjunction with `ggplot2`. One issue I address is that `ggsave()` does not accept measurements for `width` and `height` in points, but Keynote lays slides out using points as the unit of measurement. The `cp_points()` function will convert points to inches, centimeters, or millimeters (the units used by `ggsave()`).
+
+```{r}
+prener::cp_points(200, units = "in")
+prener::cp_points(200, units = "cm")
+prener::cp_points(200, units = "mm")
+```
+
 ## Contributor Code of Conduct
 Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
