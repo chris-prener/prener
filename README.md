@@ -1,8 +1,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-prener
-======
+prener <img src="man/figures/logo.png" align="right" />
+=======================================================
 
-The goal of prener is to document functions that I use frequently in my own research and teaching.
+The goal of `prener` is to document functions that I use frequently in my own research and teaching.
 
 Installation
 ------------
