@@ -47,6 +47,9 @@
 <li>
       <a href="articles/plots.html">Plotting Tools</a>
     </li>
+    <li>
+      <a href="articles/tables.html">Tidy and LaTeX Tables</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -98,77 +101,14 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="tables" class="section level3">
 <h3 class="hasAnchor">
 <a href="#tables" class="anchor"></a>Tables</h3>
-<p><code>prener</code> has a function, modeled on the <a href="https://github.com/DataInsightPartners/frequencies"><code>frequencies</code> package</a>, for creating tidy frequency tables, primarily for discrete variables. The main differences between the original function <code>freq_vect()</code> and my implementation is that I (1) make the inclusion of missing data optional and (2) make the number of significant digits displayed explicit and customizeable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tableData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-    <span class="dt">id =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),
-    <span class="dt">nhoodStr =</span> <span class="kw">c</span>(<span class="st">"Patch"</span>, <span class="st">"Bevo Mill"</span>, <span class="st">"Bevo Mill"</span>, <span class="st">"Lindenwood Park"</span>, <span class="st">"Carondelet"</span> , <span class="st">"Shaw"</span>),
-    <span class="dt">visit =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">NA</span>),
-    <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>
-    )
-
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_tidyTable">cp_tidyTable</a></span>(tableData<span class="op">$</span>nhoodStr)
-<span class="co">#&gt; # A tibble: 6 x 4</span>
-<span class="co">#&gt;              data Count Percentage  Cum.</span>
-<span class="co">#&gt;             &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;</span>
-<span class="co">#&gt; 1       Bevo Mill     2       33.3  33.3</span>
-<span class="co">#&gt; 2      Carondelet     1       16.7  50.0</span>
-<span class="co">#&gt; 3 Lindenwood Park     1       16.7  66.7</span>
-<span class="co">#&gt; 4           Patch     1       16.7  83.4</span>
-<span class="co">#&gt; 5            Shaw     1       16.7 100.0</span>
-<span class="co">#&gt; 6           Total     6      100.0</span>
-
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_tidyTable">cp_tidyTable</a></span>(tableData<span class="op">$</span>visit, <span class="dt">round =</span> <span class="dv">3</span>)
-<span class="co">#&gt; # A tibble: 4 x 4</span>
-<span class="co">#&gt;    data Count Percentage    Cum.</span>
-<span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;</span>
-<span class="co">#&gt; 1 FALSE     2     33.333  33.333</span>
-<span class="co">#&gt; 2  TRUE     3     50.000  83.333</span>
-<span class="co">#&gt; 3  &lt;NA&gt;     1     16.667 100.000</span>
-<span class="co">#&gt; 4 Total     6    100.000</span>
-
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_tidyTable">cp_tidyTable</a></span>(tableData<span class="op">$</span>visit, <span class="dt">round =</span> <span class="dv">2</span>, <span class="dt">missRow =</span> <span class="ot">FALSE</span>)
-<span class="co">#&gt; # A tibble: 3 x 4</span>
-<span class="co">#&gt;    data Count Percentage   Cum.</span>
-<span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;</span>
-<span class="co">#&gt; 1 FALSE     2      40.00  40.00</span>
-<span class="co">#&gt; 2  TRUE     3      60.00 100.00</span>
-<span class="co">#&gt; 3 Total     5     100.00</span></code></pre></div>
-<p>The package also provides a function for converting tidy tables into LaTeX-formatted frequency tables. The function can either create a full LaTeX document (<code>type = "doc"</code>), only the LaTeX table (<code>type = "table"</code>), or only the applicable rows with values (<code>type = "row"</code>). The last option can be used for creating a LaTeX table with multiple sections for different discrete variables.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tableData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
-    <span class="dt">id =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),
-    <span class="dt">nhoodStr =</span> <span class="kw">c</span>(<span class="st">"Patch"</span>, <span class="st">"Bevo Mill"</span>, <span class="st">"Bevo Mill"</span>, <span class="st">"Lindenwood Park"</span>, <span class="st">"Carondelet"</span> , <span class="st">"Shaw"</span>),
-    <span class="dt">visit =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">NA</span>),
-    <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>
-    )
-
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_texTable">cp_texTable</a></span>(tableData, <span class="st">"visit"</span>, <span class="dt">type =</span> <span class="st">"table"</span>, <span class="dt">title =</span> <span class="st">"Neighborhoods Visited"</span>)
-<span class="co">#&gt; \begin{table}[!htbp] \centering</span>
-<span class="co">#&gt; \caption{ Neighborhoods Visited }</span>
-<span class="co">#&gt; \label{}</span>
-<span class="co">#&gt; \begin{tabular}{@{\extracolsep{5pt}} llrrr} </span>
-<span class="co">#&gt; \\[-1.8ex]\hline </span>
-<span class="co">#&gt; \hline \\[-1.8ex] </span>
-<span class="co">#&gt; \multicolumn{1}{c}{Variable} &amp; \multicolumn{1}{c}{Values} &amp; \multicolumn{1}{c}{Count} &amp; \multicolumn{1}{c}{\%} &amp; \multicolumn{1}{c}{Cum. \%} \\</span>
-<span class="co">#&gt; \hline \\[-1.8ex] </span>
-<span class="co">#&gt; \multirow{ 4 }{*}{ visit }  &amp;  FALSE  &amp;  2  &amp;  33.33  &amp;  33.33  \\</span>
-<span class="co">#&gt; \hhline{~~~~~}  &amp;  TRUE  &amp;  3  &amp;  50.00  &amp;  83.33  \\</span>
-<span class="co">#&gt; \hhline{~~~~~}  &amp;  NA  &amp;  1  &amp;  16.67  &amp;  100.00  \\</span>
-<span class="co">#&gt; \hhline{~~~~~}  &amp;  Total  &amp;  6  &amp;  100.00  &amp;    \\</span>
-<span class="co">#&gt; \hline \\[-1.8ex] </span>
-<span class="co">#&gt; \end{tabular}</span>
-<span class="co">#&gt; \end{table}</span></code></pre></div>
-<p>The output is modeled on the <a href="https://cran.r-project.org/web/packages/stargazer/"><code>stargazer</code> package</a>:</p>
-<div class="figure">
-<img src="reference/figures/texTableExample.png">
-</div>
-<p>Both the <a href="https://ctan.org/pkg/multirow"><code>multirow</code></a> and <a href="https://ctan.org/pkg/hhline"><code>hhline</code></a> packages must be loaded in the preamble of your LaTeX document. The <code>type = "doc"</code> output will include these, but if you are adding a table to a pre-existing document, be sure to add them!</p>
+<p>The package also includes functionality</p>
 </div>
 <div id="statistics" class="section level3">
 <h3 class="hasAnchor">
 <a href="#statistics" class="anchor"></a>Statistics</h3>
 <p><code>prener</code> includes a helper function for calculating p-values under the t-distribution:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_probt">cp_probt</a></span>(<span class="fl">3.6308</span>, <span class="dt">df =</span> <span class="dv">72</span>)
-<span class="co">#&gt; [1] 0.0005254992</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="reference/cp_probt.html">cp_probt</a></span>(<span class="fl">3.6308</span>, <span class="dt">df =</span> <span class="dv">72</span>)
+[<span class="dv">1</span>] <span class="fl">0.0005254992</span></code></pre></div>
 </div>
 </div>
 <div id="contributor-code-of-conduct" class="section level2">

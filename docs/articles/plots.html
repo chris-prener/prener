@@ -47,6 +47,9 @@
 <li>
       <a href="../articles/plots.html">Plotting Tools</a>
     </li>
+    <li>
+      <a href="../articles/tables.html">Tidy and LaTeX Tables</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -72,42 +75,59 @@
       <h1>Plotting Tools</h1>
                         <h4 class="author">Christopher Prener</h4>
             
-            <h4 class="date">2017-10-21</h4>
+            <h4 class="date">2017-10-28</h4>
           </div>
 
     
     
 <div class="contents">
-<p><code>prener</code> includes a number of functions that I use in conjunction with <code>ggplot2</code>. The package includes a tool for implementing points as a unit of measure in <code>ggplot2</code> as well as standardized export options.</p>
+<p><code>prener</code> includes a number of functions that I use in conjunction with <code>ggplot2</code>. The package includes a tool for implementing points as a unit of measure in <code>ggplot2</code> as well as standardized design and export options.</p>
 <div id="sizing-plots" class="section level2">
 <h2 class="hasAnchor">
 <a href="#sizing-plots" class="anchor"></a>Sizing Plots</h2>
 <p>One issue I address is that <code>ggsave()</code> does not accept measurements for <code>width</code> and <code>height</code> in points, but Keynote lays slides out using points as the unit of measurement. The <code><a href="../reference/cp_points.html">cp_points()</a></code> function will convert points to inches, centimeters, or millimeters (the units used by <code>ggsave()</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"in"</span>)</code></pre></div>
-<pre><code>## [1] 2.77778</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"cm"</span>)</code></pre></div>
-<pre><code>## [1] 7.05556</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"mm"</span>)</code></pre></div>
-<pre><code>## [1] 70.5556</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(prener)
+<span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(ggplot2)
+
+<span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="../reference/cp_points.html">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"in"</span>)
+[<span class="dv">1</span>] <span class="fl">2.77778</span> 
+
+<span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="../reference/cp_points.html">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"cm"</span>)
+[<span class="dv">1</span>] <span class="fl">7.05556</span>
+
+<span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="../reference/cp_points.html">cp_points</a></span>(<span class="dv">200</span>, <span class="dt">units =</span> <span class="st">"mm"</span>)
+[<span class="dv">1</span>] <span class="fl">70.5556</span></code></pre></div>
 <p>These functions can be embedded directly in <code>ggsave()</code> calls:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(hwy)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()
 
 <span class="kw">ggsave</span>(<span class="st">"hwy"</span>, p, <span class="dt">device =</span> <span class="st">"png"</span>, 
-       <span class="dt">width =</span> prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">500</span>, <span class="dt">units =</span> <span class="st">"mm"</span>), 
-       <span class="dt">height =</span> prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_points">cp_points</a></span>(<span class="dv">375</span>, <span class="dt">units =</span> <span class="st">"mm"</span>), 
+       <span class="dt">width =</span> <span class="kw"><a href="../reference/cp_points.html">cp_points</a></span>(<span class="dv">500</span>, <span class="dt">units =</span> <span class="st">"mm"</span>), 
+       <span class="dt">height =</span> <span class="kw"><a href="../reference/cp_points.html">cp_points</a></span>(<span class="dv">375</span>, <span class="dt">units =</span> <span class="st">"mm"</span>), 
        <span class="dt">units =</span> <span class="st">"mm"</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
+</div>
+<div id="standardized-theme" class="section level2">
+<h2 class="hasAnchor">
+<a href="#standardized-theme" class="anchor"></a>Standardized Theme</h2>
+<p>I have tweaked the excellent <a href="https://github.com/jrnold/ggthemes"><code>theme_fivethiryeight</code></a> <a href="http://ggplot2.tidyverse.org"><code>ggplot2</code></a> theme from the <a href="https://github.com/jrnold/ggthemes"><code>ggthemes</code> package</a> to provide a consistent appearance for plots used with my <a href="https://github.com/chris-prener/sequoia_templates">Sequoia Keynote template</a>. I have changed the background color for the plot, the panel, and the legend to match the background of my slides. I’ve also re-positioned the legend, since I often teach in classrooms where bottom legends are not visible to the entire class. Finally, I’ve changed the base font-size to one that stands out easily on slides.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(hwy)) <span class="op">+</span><span class="st"> </span>
+<span class="st">         </span><span class="kw">geom_histogram</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">         </span><span class="kw"><a href="../reference/cp_sequoiaTheme.html">cp_sequoiaTheme</a></span>()</code></pre></div>
+<div class="figure">
+<img src="figures/exampleSequoiaTheme.png">
+</div>
 </div>
 <div id="standardized-export-options" class="section level2">
 <h2 class="hasAnchor">
 <a href="#standardized-export-options" class="anchor"></a>Standardized Export Options</h2>
 <p>The <a href="https://github.com/chris-prener/sequoia_templates">Keynote templates</a> that I use for teaching and presentations have three standard sizes that I create plots for - small (960 x 540 points), medium (960 x 630 points), and large (1024 by 768 points). The <code><a href="../reference/cp_plotSave.html">cp_plotSave()</a></code> function will export <code>ggplot2</code> plots at these dimensions. By default, these are done at 300 dots per inch but that can also be adjusted:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(hwy)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(hwy)) <span class="op">+</span><span class="st"> </span>
+<span class="st">         </span><span class="kw">geom_histogram</span>()
 
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_plotSave">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">preset =</span> <span class="st">"sm"</span>)
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_plotSave">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">preset =</span> <span class="st">"med"</span>)
-prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_plotSave">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">preset =</span> <span class="st">"lg"</span>, <span class="dt">dpi =</span> <span class="dv">500</span>)</code></pre></div>
+<span class="kw"><a href="../reference/cp_plotSave.html">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">preset =</span> <span class="st">"sm"</span>)
+<span class="kw"><a href="../reference/cp_plotSave.html">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">preset =</span> <span class="st">"med"</span>)
+<span class="kw"><a href="../reference/cp_plotSave.html">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">preset =</span> <span class="st">"lg"</span>, <span class="dt">dpi =</span> <span class="dv">500</span>)</code></pre></div>
 <p>If no <code>device</code> is specified, plots will be exported as <code>.png</code> files. Other output options may be specified using <code>device</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_plotSave">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">device =</span> <span class="st">"pdf"</span>, <span class="dt">preset =</span> <span class="st">"lg"</span>, <span class="dt">dpi =</span> <span class="dv">500</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/cp_plotSave.html">cp_plotSave</a></span>(<span class="st">"hwy"</span>, p, <span class="dt">device =</span> <span class="st">"pdf"</span>, <span class="dt">preset =</span> <span class="st">"lg"</span>, <span class="dt">dpi =</span> <span class="dv">500</span>)</code></pre></div>
 </div>
 </div>
   </div>
@@ -118,6 +138,7 @@ prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentat
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#sizing-plots">Sizing Plots</a></li>
+      <li><a href="#standardized-theme">Standardized Theme</a></li>
       <li><a href="#standardized-export-options">Standardized Export Options</a></li>
       </ul>
 </div>
