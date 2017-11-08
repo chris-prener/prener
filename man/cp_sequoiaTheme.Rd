@@ -7,12 +7,14 @@
 \href{https://cran.r-project.org/web/packages/ggthemes/index.html}{\code{ggthemes} package} (\href{https://cran.r-project.org/web/licenses/GPL-2}{source code released under GPL-2 license})
 }
 \usage{
-cp_sequoiaTheme(base_size = 28, base_family = "sans")
+cp_sequoiaTheme(base_size = 28, base_family = "sans", map = FALSE)
 }
 \arguments{
-\item{base_size}{base font size}
+\item{base_size}{Base font size}
 
-\item{base_family}{base font family}
+\item{base_family}{Base font family}
+
+\item{map}{A logical scalar. Is the plot a map?}
 }
 \description{
 The \code{cp_sequoiaTheme} is built on top of the \code{ggthemes}
@@ -25,13 +27,13 @@ altered legend position and direction, a much larger default font size.
 library("ggplot2")
 p1 <- ggplot(data = mpg) +
       geom_point(mapping = aes(x = hwy, y = displ, color = as.factor(cyl))) +
-      cp_sequoiaTheme()
+      cp_sequoiaTheme(map = FALSE)
 
 p2 <- ggplot(data = mpg) +
       geom_point(mapping = aes(x = hwy, y = displ, color = as.factor(cyl)),
       size = 4, position = "jitter") +
       scale_x_continuous(limits = c(10, 50)) +
-      cp_sequoiaTheme() +
+      cp_sequoiaTheme(map = FALSE) +
       labs(color = "Cylinder", x = "Highway Fuel Efficency", y = "Engine Displacement")
 
 }
