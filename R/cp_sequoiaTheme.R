@@ -60,4 +60,29 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", map = FALSE) {
        plot.margin = unit(c(1, 1, 1, 1), "lines"),
        strip.background = element_rect()))
   }
+  else if (map == TRUE){
+    (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
+     + theme(
+       line = element_line(colour = "black"),
+       rect = element_rect(fill = '#F0F0F0', linetype = 0, colour = NA),
+       text = element_text(colour = '#3C3C3C'),
+       axis.title = element_blank(),
+       axis.text = element_blank(),
+       axis.ticks = element_blank(),
+       axis.line = element_blank(),
+       legend.background = element_rect(fill = '#EBEBEB'),
+       legend.key = element_rect(fill = '#EBEBEB'),
+       legend.key.size=unit(1.5, units="cm"),
+       legend.position = "right",
+       legend.direction = "vertical",
+       legend.box = "vertical",
+       panel.grid = element_line(colour = NULL),
+       panel.grid.major = element_blank(),
+       panel.grid.minor = element_blank(),
+       panel.background = element_rect(fill = '#EBEBEB'),
+       plot.background = element_rect(fill = '#EBEBEB'),
+       plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
+       plot.margin = unit(c(1, 1, 1, 1), "lines"),
+       strip.background = element_rect()))
+  }
 }
