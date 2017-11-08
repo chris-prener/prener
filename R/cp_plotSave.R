@@ -43,16 +43,16 @@ cp_plotSave <- function(filename, plot, device = "png", preset = c("sm", "med", 
     ggsave(filename, plotDef, device = device,
            width = cp_points(960, units = "mm"),
            height = cp_points(540, units = "mm"),
-           units = "mm", dpi = dpi)
+           units = "mm", dpi = dpi, bg = "transparent")
   } else if (preset == "med"){
     ggsave(filename, plotDef, device = device,
            width = cp_points(960, units = "mm"),
            height = cp_points(630, units = "mm"),
-           units = "mm", dpi = dpi)
+           units = "mm", dpi = dpi, bg = "transparent")
   } else if (preset == "lg"){
     ggsave(filename, plotDef, device = device,
            width = cp_points(1024, units = "mm"),
            height = cp_points(768, units = "mm"),
-           units = "mm", dpi = dpi)
+           units = "mm", dpi = dpi, bg = "transparent")
   }
 }

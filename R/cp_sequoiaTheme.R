@@ -47,6 +47,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", map = FALSE) {
        axis.line = element_blank(),
        legend.background = element_rect(fill = '#EBEBEB'),
        legend.key = element_rect(fill = '#EBEBEB'),
+       legend.key.size = unit(1.5, units="cm"),
        legend.position = "right",
        legend.direction = "vertical",
        legend.box = "vertical",
@@ -64,7 +65,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", map = FALSE) {
     (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
      + theme(
        line = element_line(colour = "black"),
-       rect = element_rect(fill = '#F0F0F0', linetype = 0, colour = NA),
+       rect = element_rect(fill = '#EBEBEB', linetype = 0, colour = NA),
        text = element_text(colour = '#3C3C3C'),
        axis.title = element_blank(),
        axis.text = element_blank(),
@@ -72,7 +73,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", map = FALSE) {
        axis.line = element_blank(),
        legend.background = element_rect(fill = '#EBEBEB'),
        legend.key = element_rect(fill = '#EBEBEB'),
-       legend.key.size=unit(1.5, units="cm"),
+       legend.key.size = unit(1.55, units="cm"),
        legend.position = "right",
        legend.direction = "vertical",
        legend.box = "vertical",
