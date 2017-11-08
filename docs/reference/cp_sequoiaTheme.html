@@ -106,18 +106,22 @@ for Apple's Keynote. Among the changes completed are matching backgrounds, an
 altered legend position and direction, a much larger default font size.</p>
     
 
-    <pre class="usage"><span class='fu'>cp_sequoiaTheme</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>28</span>, <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>"sans"</span>)</pre>
+    <pre class="usage"><span class='fu'>cp_sequoiaTheme</span>(<span class='kw'>base_size</span> <span class='kw'>=</span> <span class='fl'>28</span>, <span class='kw'>base_family</span> <span class='kw'>=</span> <span class='st'>"sans"</span>, <span class='kw'>map</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>base_size</th>
-      <td><p>base font size</p></td>
+      <td><p>Base font size</p></td>
     </tr>
     <tr>
       <th>base_family</th>
-      <td><p>base font family</p></td>
+      <td><p>Base font family</p></td>
+    </tr>
+    <tr>
+      <th>map</th>
+      <td><p>A logical scalar. Is the plot a map?</p></td>
     </tr>
     </table>
     
@@ -130,13 +134,13 @@ altered legend position and direction, a much larger default font size.</p>
     <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='st'>"ggplot2"</span>)
 <span class='no'>p1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mpg</span>) +
       <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_point'>geom_point</a></span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>hwy</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>displ</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='fu'>as.factor</span>(<span class='no'>cyl</span>))) +
-      <span class='fu'>cp_sequoiaTheme</span>()
+      <span class='fu'>cp_sequoiaTheme</span>(<span class='kw'>map</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='no'>p2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mpg</span>) +
       <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_point'>geom_point</a></span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>hwy</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>displ</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='fu'>as.factor</span>(<span class='no'>cyl</span>)),
       <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"jitter"</span>) +
       <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/scale_continuous'>scale_x_continuous</a></span>(<span class='kw'>limits</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>10</span>, <span class='fl'>50</span>)) +
-      <span class='fu'>cp_sequoiaTheme</span>() +
+      <span class='fu'>cp_sequoiaTheme</span>(<span class='kw'>map</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>) +
       <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/labs'>labs</a></span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"Cylinder"</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Highway Fuel Efficency"</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='st'>"Engine Displacement"</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
