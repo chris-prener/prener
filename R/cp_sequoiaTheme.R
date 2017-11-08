@@ -78,7 +78,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", map = FALSE) {
        legend.direction = "vertical",
        legend.box = "vertical",
        panel.grid = element_line(colour = NULL),
-       panel.grid.major = element_blank(),
+       panel.grid.major = element_line(color = '#EBEBEB'),
        panel.grid.minor = element_blank(),
        panel.background = element_rect(fill = '#EBEBEB'),
        plot.background = element_rect(fill = '#EBEBEB'),
