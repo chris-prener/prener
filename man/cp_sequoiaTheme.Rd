@@ -7,12 +7,17 @@
 \href{https://cran.r-project.org/web/packages/ggthemes/index.html}{\code{ggthemes} package} (\href{https://cran.r-project.org/web/licenses/GPL-2}{source code released under GPL-2 license})
 }
 \usage{
-cp_sequoiaTheme(base_size = 28, base_family = "sans", map = FALSE)
+cp_sequoiaTheme(base_size = 28, base_family = "sans",
+    background = c("transparent", "white", "gray"), legend_size = 1.5, map = FALSE)
 }
 \arguments{
 \item{base_size}{Base font size}
 
 \item{base_family}{Base font family}
+
+\item{background}{A choice of either transparent, white, or gray (gray available for plots only)}
+
+\item{legend_size}{Size of the legend items (in centimeters)}
 
 \item{map}{A logical scalar. Is the plot a map?}
 }
@@ -27,13 +32,13 @@ altered legend position and direction, a much larger default font size.
 library("ggplot2")
 p1 <- ggplot(data = mpg) +
       geom_point(mapping = aes(x = hwy, y = displ, color = as.factor(cyl))) +
-      cp_sequoiaTheme(map = FALSE)
+      cp_sequoiaTheme(background = "white", map = FALSE)
 
 p2 <- ggplot(data = mpg) +
       geom_point(mapping = aes(x = hwy, y = displ, color = as.factor(cyl)),
       size = 4, position = "jitter") +
       scale_x_continuous(limits = c(10, 50)) +
-      cp_sequoiaTheme(map = FALSE) +
+      cp_sequoiaTheme(background = "white", map = FALSE) +
       labs(color = "Cylinder", x = "Highway Fuel Efficency", y = "Engine Displacement")
 
 }

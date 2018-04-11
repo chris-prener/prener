@@ -6,10 +6,13 @@
 #' for Apple's Keynote. Among the changes completed are matching backgrounds, an
 #' altered legend position and direction, a much larger default font size.
 #'
-#' @usage cp_sequoiaTheme(base_size = 28, base_family = "sans", map = FALSE)
+#' @usage cp_sequoiaTheme(base_size = 28, base_family = "sans",
+#'     background = c("transparent", "white", "gray"), legend_size = 1.5, map = FALSE)
 #'
 #' @param base_size Base font size
 #' @param base_family Base font family
+#' @param background A choice of either transparent, white, or gray (gray available for plots only)
+#' @param legend_size Size of the legend items (in centimeters)
 #' @param map A logical scalar. Is the plot a map?
 #'
 #' @source \href{https://cran.r-project.org/web/packages/ggthemes/index.html}{\code{ggthemes} package} (\href{https://cran.r-project.org/web/licenses/GPL-2}{source code released under GPL-2 license})
@@ -20,70 +23,158 @@
 #' library("ggplot2")
 #' p1 <- ggplot(data = mpg) +
 #'       geom_point(mapping = aes(x = hwy, y = displ, color = as.factor(cyl))) +
-#'       cp_sequoiaTheme(map = FALSE)
+#'       cp_sequoiaTheme(background = "white", map = FALSE)
 #'
 #' p2 <- ggplot(data = mpg) +
 #'       geom_point(mapping = aes(x = hwy, y = displ, color = as.factor(cyl)),
 #'       size = 4, position = "jitter") +
 #'       scale_x_continuous(limits = c(10, 50)) +
-#'       cp_sequoiaTheme(map = FALSE) +
+#'       cp_sequoiaTheme(background = "white", map = FALSE) +
 #'       labs(color = "Cylinder", x = "Highway Fuel Efficency", y = "Engine Displacement")
 #'
 #' @export
-cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", map = FALSE) {
+cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c("transparent", "white", "gray"), legend_size = 1.5, map = FALSE) {
 
   # R CMD check error
   element_blank = element_line = element_rect = element_text = rel = theme = unit = NULL
 
   if (map == FALSE) {
-    (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
-     + theme(
-       line = element_line(colour = "black"),
-       rect = element_rect(fill = '#F0F0F0', linetype = 0, colour = NA),
-       text = element_text(colour = '#3C3C3C'),
-       axis.title = element_text(),
-       axis.text = element_text(),
-       axis.ticks = element_blank(),
-       axis.line = element_blank(),
-       legend.background = element_rect(fill = '#EBEBEB'),
-       legend.key = element_rect(fill = '#EBEBEB'),
-       legend.key.size = unit(1.5, units="cm"),
-       legend.position = "right",
-       legend.direction = "vertical",
-       legend.box = "vertical",
-       panel.grid = element_line(colour = NULL),
-       panel.grid.major =
-         element_line(colour = '#D2D2D2'),
-       panel.grid.minor = element_blank(),
-       panel.background = element_rect(fill = '#EBEBEB'),
-       plot.background = element_rect(fill = '#EBEBEB'),
-       plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
-       plot.margin = unit(c(1, 1, 1, 1), "lines"),
-       strip.background = element_rect()))
-  }
-  else if (map == TRUE){
-    (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
-     + theme(
-       line = element_line(colour = "black"),
-       rect = element_rect(fill = '#EBEBEB', linetype = 0, colour = NA),
-       text = element_text(colour = '#3C3C3C'),
-       axis.title = element_blank(),
-       axis.text = element_blank(),
-       axis.ticks = element_blank(),
-       axis.line = element_blank(),
-       legend.background = element_rect(fill = '#EBEBEB'),
-       legend.key = element_rect(fill = '#EBEBEB'),
-       legend.key.size = unit(1.55, units="cm"),
-       legend.position = "right",
-       legend.direction = "vertical",
-       legend.box = "vertical",
-       panel.grid = element_line(colour = NULL),
-       panel.grid.major = element_line(color = '#EBEBEB'),
-       panel.grid.minor = element_blank(),
-       panel.background = element_rect(fill = '#EBEBEB'),
-       plot.background = element_rect(fill = '#EBEBEB'),
-       plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
-       plot.margin = unit(c(1, 1, 1, 1), "lines"),
-       strip.background = element_rect()))
+
+    if (background == "gray"){
+
+      (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
+       + theme(
+         line = element_line(colour = "black"),
+         rect = element_rect(fill = '#F0F0F0', linetype = 0, colour = NA),
+         text = element_text(colour = '#3C3C3C'),
+         axis.title = element_text(),
+         axis.text = element_text(),
+         axis.ticks = element_blank(),
+         axis.line = element_blank(),
+         legend.background = element_rect(fill = '#EBEBEB'),
+         legend.key = element_rect(fill = '#EBEBEB'),
+         legend.key.size = unit(1.5, units="cm"),
+         legend.position = "right",
+         legend.direction = "vertical",
+         legend.box = "vertical",
+         panel.grid = element_line(colour = NULL),
+         panel.grid.major =
+           element_line(colour = '#D2D2D2'),
+         panel.grid.minor = element_blank(),
+         panel.background = element_rect(fill = '#EBEBEB'),
+         plot.background = element_rect(fill = '#EBEBEB'),
+         plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
+         plot.margin = unit(c(1, 1, 1, 1), "lines"),
+         strip.background = element_rect()))
+
+
+    } else if (background == "white"){
+
+      (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
+       + theme(
+         line = element_line(colour = "black"),
+         rect = element_rect(fill = '#F0F0F0', linetype = 0, colour = NA),
+         text = element_text(colour = '#3C3C3C'),
+         axis.title = element_text(),
+         axis.text = element_text(),
+         axis.ticks = element_blank(),
+         axis.line = element_blank(),
+         legend.background = element_rect(fill = '#EBEBEB'),
+         legend.key = element_rect(fill = '#EBEBEB'),
+         legend.key.size = unit(1.5, units="cm"),
+         legend.position = "right",
+         legend.direction = "vertical",
+         legend.box = "vertical",
+         panel.grid = element_line(colour = NULL),
+         panel.grid.major =
+           element_line(colour = '#D2D2D2'),
+         panel.grid.minor = element_blank(),
+         panel.background = element_rect(fill = '#EBEBEB'),
+         plot.background = element_rect(fill = '#EBEBEB'),
+         plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
+         plot.margin = unit(c(1, 1, 1, 1), "lines"),
+         strip.background = element_rect()))
+
+    } else if (background == "transparent"){
+
+      (ggthemes::theme_foundation(base_size = base_size, base_family = base_family)
+       + theme(
+         line = element_line(colour = "black"),
+         rect = element_rect(fill = '#F0F0F0', linetype = 0, colour = NA),
+         text = element_text(colour = '#3C3C3C'),
+         axis.title = element_text(),
+         axis.text = element_text(),
+         axis.ticks = element_blank(),
+         axis.line = element_blank(),
+         legend.background = element_rect(colour = NA, fill = NA),
+         legend.key = element_blank(),
+         legend.key.size = unit(1.5, units="cm"),
+         legend.position = "right",
+         legend.direction = "vertical",
+         legend.box = "vertical",
+         panel.grid = element_line(colour = NULL),
+         panel.grid.major =
+           element_line(colour = '#D2D2D2'),
+         panel.grid.minor = element_blank(),
+         panel.background = element_blank(),
+         plot.background = element_blank(),
+         plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
+         plot.margin = unit(c(1, 1, 1, 1), "lines"),
+         strip.background = element_rect()))
+
+    }
+
+  } else if (map == TRUE){
+
+    if (background == "transparent"){
+
+      ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
+        theme(
+          line = element_line(colour = "black"),
+          text = element_text(colour = '#3C3C3C'),
+          axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          axis.title = element_blank(),
+          panel.background = element_blank(),
+          panel.border = element_blank(),
+          panel.grid = element_blank(),
+          panel.spacing = unit(0, "lines"),
+          plot.background = element_blank(),
+          legend.justification = c(0, 0),
+          legend.background = element_rect(colour = NA, fill = NA),
+          legend.key.size = unit(legend_size, units="cm"),
+          legend.position = "right",
+          legend.direction = "vertical",
+          legend.box = "vertical",
+          plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
+          plot.caption = element_text(hjust = "0"))
+
+    } else if (background == "white"){
+
+      ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
+        theme(
+          line = element_line(colour = "black"),
+          text = element_text(colour = '#3C3C3C'),
+          axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          axis.title = element_blank(),
+          panel.background = element_rect(fill = '#FFFFFF'),
+          panel.border = element_blank(),
+          panel.grid = element_blank(),
+          panel.spacing = unit(0, "lines"),
+          plot.background = element_rect(fill = '#FFFFFF'),
+          legend.justification = c(0, 0),
+          legend.background = element_rect(fill = '#FFFFFF'),
+          legend.key = element_rect(fill = '#FFFFFF'),
+          legend.key.size = unit(legend_size, units="cm"),
+          legend.position = "right",
+          legend.direction = "vertical",
+          legend.box = "vertical",
+          plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
+          plot.caption = element_text(hjust = "0"))
+
+    }
   }
 }
