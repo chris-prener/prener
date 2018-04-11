@@ -24,9 +24,7 @@ Useage
 
 `prener` includes a number of functions that I use in conjunction with `ggplot2`, including a function (`cp_points()`) for converting measurements from points to inches, centimeters, and millimeters and a function (`cp_plotSave()`) for standardized export options.
 
-### Tables
-
-The package also includes functionality
+The package also includes a theme specification for `ggplot2` that is designed to produce clean, minimal plots and maps for lectures and presentations. The theme is built on top of [`ggthemes`](https://github.com/jrnold/ggthemes) and can be used with a number of backgrounds. Both plots and maps can be produced with a white and a transparent background, and plots can also be produced using a particular shade of gray (`#EBEBEB`) that I use in the background of my slides.
 
 ### Statistics
 
@@ -40,4 +38,4 @@ The package also includes functionality
 Contributor Code of Conduct
 ---------------------------
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OFCONDUCT.md). By participating in this project you agree to abide by its terms.
