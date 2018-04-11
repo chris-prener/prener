@@ -2,7 +2,7 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^README-.*\.png$
-^CONDUCT\.md$
+^CODE\_OF\_CONDUCT\.md$
 ^docs$
 ^\.travis\.yml$
 ^appveyor\.yml$

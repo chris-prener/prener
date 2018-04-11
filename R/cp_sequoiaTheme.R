@@ -65,6 +65,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
          plot.background = element_rect(fill = '#EBEBEB'),
          plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
          plot.margin = unit(c(1, 1, 1, 1), "lines"),
+         plot.caption = element_text(hjust = "0"),
          strip.background = element_rect()))
 
 
@@ -79,8 +80,8 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
          axis.text = element_text(),
          axis.ticks = element_blank(),
          axis.line = element_blank(),
-         legend.background = element_rect(fill = '#EBEBEB'),
-         legend.key = element_rect(fill = '#EBEBEB'),
+         legend.background = element_rect(fill = '#FFFFFF'),
+         legend.key = element_rect(fill = '#FFFFFF'),
          legend.key.size = unit(1.5, units="cm"),
          legend.position = "right",
          legend.direction = "vertical",
@@ -89,10 +90,11 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
          panel.grid.major =
            element_line(colour = '#D2D2D2'),
          panel.grid.minor = element_blank(),
-         panel.background = element_rect(fill = '#EBEBEB'),
-         plot.background = element_rect(fill = '#EBEBEB'),
+         panel.background = element_rect(fill = '#FFFFFF'),
+         plot.background = element_rect(fill = '#FFFFFF'),
          plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
          plot.margin = unit(c(1, 1, 1, 1), "lines"),
+         plot.caption = element_text(hjust = "0"),
          strip.background = element_rect()))
 
     } else if (background == "transparent"){
@@ -120,6 +122,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
          plot.background = element_blank(),
          plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
          plot.margin = unit(c(1, 1, 1, 1), "lines"),
+         plot.caption = element_text(hjust = "0"),
          strip.background = element_rect()))
 
     }
@@ -128,7 +131,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
 
     if (background == "transparent"){
 
-      ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
+      (ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
         theme(
           line = element_line(colour = "black"),
           text = element_text(colour = '#3C3C3C'),
@@ -148,11 +151,11 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
           legend.direction = "vertical",
           legend.box = "vertical",
           plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
-          plot.caption = element_text(hjust = "0"))
+          plot.caption = element_text(hjust = "0")))
 
     } else if (background == "white"){
 
-      ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
+      (ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
         theme(
           line = element_line(colour = "black"),
           text = element_text(colour = '#3C3C3C'),
@@ -160,11 +163,11 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
           axis.text = element_blank(),
           axis.ticks = element_blank(),
           axis.title = element_blank(),
-          panel.background = element_rect(fill = '#FFFFFF'),
+          panel.background = element_rect(fill = '#FFFFFF', color = NA),
           panel.border = element_blank(),
           panel.grid = element_blank(),
           panel.spacing = unit(0, "lines"),
-          plot.background = element_rect(fill = '#FFFFFF'),
+          plot.background = element_rect(fill = '#FFFFFF', color = NA),
           legend.justification = c(0, 0),
           legend.background = element_rect(fill = '#FFFFFF'),
           legend.key = element_rect(fill = '#FFFFFF'),
@@ -173,7 +176,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
           legend.direction = "vertical",
           legend.box = "vertical",
           plot.title = element_text(hjust = 0, size = rel(1.5), face = "bold"),
-          plot.caption = element_text(hjust = "0"))
+          plot.caption = element_text(hjust = "0")))
 
     }
   }
