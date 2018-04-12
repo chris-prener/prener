@@ -75,6 +75,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">News</a>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -149,43 +152,43 @@
    )
 
 <span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>nhoodStr</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 4
-#&gt;              data Count Percentage  Cum.
-#&gt;             &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
-#&gt; 1       Bevo Mill     2       33.3  33.3
-#&gt; 2      Carondelet     1       16.7  50.0
-#&gt; 3 Lindenwood Park     1       16.7  66.7
-#&gt; 4           Patch     1       16.7  83.4
-#&gt; 5            Shaw     1       16.7 100.0
-#&gt; 6           Total     6      100.0      </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>nhoodStr</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 4
-#&gt;              data Count Percentage   Cum.
-#&gt;             &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;
-#&gt; 1       Bevo Mill     2      33.33  33.33
-#&gt; 2      Carondelet     1      16.67  50.00
-#&gt; 3 Lindenwood Park     1      16.67  66.67
-#&gt; 4           Patch     1      16.67  83.34
-#&gt; 5            Shaw     1      16.67 100.00
-#&gt; 6           Total     6     100.00       </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>visit</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>missRow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 4 x 4
-#&gt;    data Count Percentage   Cum.
-#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;
-#&gt; 1 FALSE     2      33.33  33.33
-#&gt; 2  TRUE     3      50.00  83.33
-#&gt; 3  &lt;NA&gt;     1      16.67 100.00
-#&gt; 4 Total     6     100.00       </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>visit</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>missRow</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 4
-#&gt;    data Count Percentage   Cum.
-#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;
-#&gt; 1 FALSE     2      40.00  40.00
-#&gt; 2  TRUE     3      60.00 100.00
-#&gt; 3 Total     5     100.00       </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>type</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>sortByCount</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 4
-#&gt;    data Count Percentage    Cum.
-#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;
-#&gt; 1     A     2     33.333  33.333
-#&gt; 2     B     4     66.667 100.000
-#&gt; 3 Total     6    100.000        </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>type</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>sortByCount</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 4
-#&gt;    data Count Percentage    Cum.
-#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;
-#&gt; 1     B     4     66.667  66.667
-#&gt; 2     A     2     33.333 100.000
-#&gt; 3 Total     6    100.000        </div><div class='input'>
+#&gt;   data            Count Percentage Cum. 
+#&gt;   &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;
+#&gt; 1 Bevo Mill       2     33.3       33.3 
+#&gt; 2 Carondelet      1     16.7       50.0 
+#&gt; 3 Lindenwood Park 1     16.7       66.7 
+#&gt; 4 Patch           1     16.7       83.4 
+#&gt; 5 Shaw            1     16.7       100.0
+#&gt; 6 Total           6     100.0      ""   </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>nhoodStr</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; # A tibble: 6 x 4
+#&gt;   data            Count Percentage Cum.  
+#&gt;   &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; 
+#&gt; 1 Bevo Mill       2     33.33      33.33 
+#&gt; 2 Carondelet      1     16.67      50.00 
+#&gt; 3 Lindenwood Park 1     16.67      66.67 
+#&gt; 4 Patch           1     16.67      83.34 
+#&gt; 5 Shaw            1     16.67      100.00
+#&gt; 6 Total           6     100.00     ""    </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>visit</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>missRow</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 4 x 4
+#&gt;   data  Count Percentage Cum.  
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; 
+#&gt; 1 FALSE 2     33.33      33.33 
+#&gt; 2 TRUE  3     50.00      83.33 
+#&gt; 3 &lt;NA&gt;  1     16.67      100.00
+#&gt; 4 Total 6     100.00     ""    </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>visit</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>missRow</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 4
+#&gt;   data  Count Percentage Cum.  
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; 
+#&gt; 1 FALSE 2     40.00      40.00 
+#&gt; 2 TRUE  3     60.00      100.00
+#&gt; 3 Total 5     100.00     ""    </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>type</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>sortByCount</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 4
+#&gt;   data  Count Percentage Cum.   
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  
+#&gt; 1 A     2     33.333     33.333 
+#&gt; 2 B     4     66.667     100.000
+#&gt; 3 Total 6     100.000    ""     </div><div class='input'><span class='fu'>cp_tidyTable</span>(<span class='no'>tableData</span>$<span class='no'>type</span>, <span class='kw'>round</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>sortByCount</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 3 x 4
+#&gt;   data  Count Percentage Cum.   
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  
+#&gt; 1 B     4     66.667     66.667 
+#&gt; 2 A     2     33.333     100.000
+#&gt; 3 Total 6     100.000    ""     </div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

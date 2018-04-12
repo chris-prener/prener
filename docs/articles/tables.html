@@ -52,6 +52,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">News</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -75,7 +78,7 @@
       <h1>Tidy and LaTeX Tables</h1>
                         <h4 class="author">Christopher Prener</h4>
             
-            <h4 class="date">2017-11-08</h4>
+            <h4 class="date">2018-04-11</h4>
           </div>
 
     
@@ -95,29 +98,29 @@
 
 prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_tidyTable">cp_tidyTable</a></span>(tableData<span class="op">$</span>nhoodStr)</code></pre></div>
 <pre><code>## # A tibble: 6 x 4
-##              data Count Percentage  Cum.
-##             &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;
-## 1       Bevo Mill     2       33.3  33.3
-## 2      Carondelet     1       16.7  50.0
-## 3 Lindenwood Park     1       16.7  66.7
-## 4           Patch     1       16.7  83.4
-## 5            Shaw     1       16.7 100.0
-## 6           Total     6      100.0</code></pre>
+##   data            Count Percentage Cum. 
+##   &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;
+## 1 Bevo Mill       2     33.3       33.3 
+## 2 Carondelet      1     16.7       50.0 
+## 3 Lindenwood Park 1     16.7       66.7 
+## 4 Patch           1     16.7       83.4 
+## 5 Shaw            1     16.7       100.0
+## 6 Total           6     100.0      ""</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_tidyTable">cp_tidyTable</a></span>(tableData<span class="op">$</span>visit, <span class="dt">round =</span> <span class="dv">3</span>)</code></pre></div>
 <pre><code>## # A tibble: 4 x 4
-##    data Count Percentage    Cum.
-##   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;   &lt;chr&gt;
-## 1 FALSE     2     33.333  33.333
-## 2  TRUE     3     50.000  83.333
-## 3  &lt;NA&gt;     1     16.667 100.000
-## 4 Total     6    100.000</code></pre>
+##   data  Count Percentage Cum.   
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  
+## 1 FALSE 2     33.333     33.333 
+## 2 TRUE  3     50.000     83.333 
+## 3 &lt;NA&gt;  1     16.667     100.000
+## 4 Total 6     100.000    ""</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prener<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/prener/topics/cp_tidyTable">cp_tidyTable</a></span>(tableData<span class="op">$</span>visit, <span class="dt">round =</span> <span class="dv">2</span>, <span class="dt">missRow =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <pre><code>## # A tibble: 3 x 4
-##    data Count Percentage   Cum.
-##   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;
-## 1 FALSE     2      40.00  40.00
-## 2  TRUE     3      60.00 100.00
-## 3 Total     5     100.00</code></pre>
+##   data  Count Percentage Cum.  
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; 
+## 1 FALSE 2     40.00      40.00 
+## 2 TRUE  3     60.00      100.00
+## 3 Total 5     100.00     ""</code></pre>
 <p>The package also provides a function for converting tidy tables into LaTeX-formatted frequency tables. The function can either create a full LaTeX document (<code>type = "doc"</code>), only the LaTeX table (<code>type = "table"</code>), or only the applicable rows with values (<code>type = "row"</code>). The last option can be used for creating a LaTeX table with multiple sections for different discrete variables.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tableData &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
     <span class="dt">id =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>),
