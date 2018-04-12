@@ -134,6 +134,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
       (ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
         theme(
           line = element_line(colour = "black"),
+          rect = element_rect(fill = NA, linetype = 1, colour = '#898989'),
           text = element_text(colour = '#3C3C3C'),
           axis.line = element_blank(),
           axis.text = element_blank(),
@@ -158,6 +159,7 @@ cp_sequoiaTheme <-function(base_size = 28, base_family = "sans", background = c(
       (ggthemes::theme_foundation(base_size = base_size, base_family = base_family) +
         theme(
           line = element_line(colour = "black"),
+          rect = element_rect(fill = NA, linetype = 1, colour = '#898989'),
           text = element_text(colour = '#3C3C3C'),
           axis.line = element_blank(),
           axis.text = element_blank(),
