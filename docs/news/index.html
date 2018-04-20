@@ -70,9 +70,6 @@
     <li>
       <a href="../articles/plots.html">Plotting Tools</a>
     </li>
-    <li>
-      <a href="../articles/tables.html">Tidy and LaTeX Tables</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -103,12 +100,30 @@
     </div>
 
     <div class="contents">
-    <div id="prener-0-2-0" class="section level1">
+    <div id="prener-0-3-0" class="section level1">
 <h1 class="hasAnchor">
-<a href="#prener-0-2-0" class="anchor"></a>prener 0.2.0</h1>
+<a href="#prener-0-3-0" class="anchor"></a>prener 0.3.0</h1>
+<div id="new-functions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#new-functions" class="anchor"></a>New Functions</h3>
+<ul>
+<li>the <code>cp_breaks</code> function is added - this is a wrapper around the <code>classInt</code> package’s <code>classIntervals</code> function along with <code>cut</code> for calculating factor variables containing breaks for mapping</li>
+</ul>
+</div>
 <div id="breaking-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking Changes</h3>
+<ul>
+<li>the <code>cp_texTable</code> and <code>cp_tidyTable</code> functions have been removed in favor of using <code>janitor</code> and <code>stargazer</code> for table generation</li>
+</ul>
+</div>
+</div>
+    <div id="prener-0-2-0" class="section level1">
+<h1 class="hasAnchor">
+<a href="#prener-0-2-0" class="anchor"></a>prener 0.2.0</h1>
+<div id="breaking-changes-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#breaking-changes-1" class="anchor"></a>Breaking Changes</h3>
 <ul>
 <li>the <code><a href="../reference/cp_sequoiaTheme.html">cp_sequoiaTheme()</a></code> function now accepts an argument to specify the type of background used, and also introduces a standard that is shared for both maps and plots</li>
 </ul>
@@ -128,6 +143,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#prener-0-3-0">0.3.0</a></li>
         <li><a href="#prener-0-2-0">0.2.0</a></li>
       </ul>
     </div>

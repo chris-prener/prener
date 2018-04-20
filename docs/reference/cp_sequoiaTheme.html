@@ -70,9 +70,6 @@
     <li>
       <a href="../articles/plots.html">Plotting Tools</a>
     </li>
-    <li>
-      <a href="../articles/tables.html">Tidy and LaTeX Tables</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -143,8 +140,8 @@ altered legend position and direction, a much larger default font size.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='st'>"ggplot2"</span>)</div><div class='output co'>#&gt; <span class='message'>Want to understand how all the pieces fit together? See the R for Data</span>
-#&gt; <span class='message'>Science book: http://r4ds.had.co.nz/</span></div><div class='input'><span class='no'>p1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mpg</span>) +
+    <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='st'>"ggplot2"</span>)
+<span class='no'>p1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>mpg</span>) +
       <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_point'>geom_point</a></span>(<span class='kw'>mapping</span> <span class='kw'>=</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>hwy</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>displ</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='fu'>as.factor</span>(<span class='no'>cyl</span>))) +
       <span class='fu'>cp_sequoiaTheme</span>(<span class='kw'>background</span> <span class='kw'>=</span> <span class='st'>"white"</span>, <span class='kw'>map</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 

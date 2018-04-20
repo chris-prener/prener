@@ -47,9 +47,6 @@
 <li>
       <a href="articles/plots.html">Plotting Tools</a>
     </li>
-    <li>
-      <a href="articles/tables.html">Tidy and LaTeX Tables</a>
-    </li>
   </ul>
 </li>
 <li>
@@ -96,11 +93,12 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="useage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#useage" class="anchor"></a>Useage</h2>
-<div id="plotting" class="section level3">
+<div id="plotting-and-mapping" class="section level3">
 <h3 class="hasAnchor">
-<a href="#plotting" class="anchor"></a>Plotting</h3>
+<a href="#plotting-and-mapping" class="anchor"></a>Plotting and Mapping</h3>
 <p><code>prener</code> includes a number of functions that I use in conjunction with <code>ggplot2</code>, including a function (<code><a href="reference/cp_points.html">cp_points()</a></code>) for converting measurements from points to inches, centimeters, and millimeters and a function (<code><a href="reference/cp_plotSave.html">cp_plotSave()</a></code>) for standardized export options.</p>
 <p>The package also includes a theme specification for <code>ggplot2</code> that is designed to produce clean, minimal plots and maps for lectures and presentations. The theme is built on top of <a href="https://github.com/jrnold/ggthemes"><code>ggthemes</code></a> and can be used with a number of backgrounds. Both plots and maps can be produced with a white and a transparent background, and plots can also be produced using a particular shade of gray (<code>#EBEBEB</code>) that I use in the background of my slides.</p>
+<p>Finally, the package contains <code><a href="reference/cp_breaks.html">cp_breaks()</a></code> for calculating breaks in mapping. It is a wrapper around the <code>classInt</code> package’s <code>classIntervals</code> function along with <code>cut</code> for calculating factor variables containing breaks for mapping. The various approaches to calculating breaks are summarized in the <a href="https://cran.r-project.org/web/packages/classInt/classInt.pdf"><code>classInt</code> documentation</a>.</p>
 </div>
 <div id="statistics" class="section level3">
 <h3 class="hasAnchor">
@@ -113,7 +111,7 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="contributor-code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contributor-code-of-conduct" class="anchor"></a>Contributor Code of Conduct</h2>
-<p>Please note that this project is released with a <a href="CODE_OFCONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
+<p>Please note that this project is released with a <a href="CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By participating in this project you agree to abide by its terms.</p>
 </div>
 </div>
 </div>
