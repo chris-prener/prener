@@ -1,7 +1,7 @@
 # prener 0.3.0
 
 ### New Functions
-* the `cp_breaks` function is added - this is wrapper around the classInt package's `classIntervals` function along with `cut` for calculating factor variables containing breaks for mapping
+* the `cp_breaks` function is added - this is a wrapper around the `classInt` package's `classIntervals` function along with `cut` for calculating factor variables containing breaks for mapping
 
 ### Breaking Changes
 
