@@ -1,7 +1,7 @@
 Package: prener
 Type: Package
 Title: Chris Prener's R Functions 
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: person("Christopher", "Prener", email = "chris.prener@slu.edu",
                   role = c("aut", "cre"))
 Description: This package contains functions that I have written for my own work.
@@ -12,11 +12,14 @@ LazyData: true
 URL: https://github.com/chris-prener/prener
 BugReports: https://github.com/chris-prener/prener/issues
 RoxygenNote: 6.0.1
-Imports: ggplot2,
+Imports: 
+    classInt,
     dplyr,
+    ggplot2,
     ggthemes
-Suggests: testthat,
+Suggests: 
     covr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
 VignetteBuilder: knitr
