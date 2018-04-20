@@ -10,6 +10,7 @@
 #' @param style The method for calculating classes, see classInt::classIntervals
 #'
 #' @importFrom classInt classIntervals
+#' @importFrom dplyr mutate
 #'
 #' @export
 cp_breaks <- function(.data, var, newvar, classes, style){
@@ -17,7 +18,7 @@ cp_breaks <- function(.data, var, newvar, classes, style){
   breaks <- classInt::classIntervals(.data[[var]], n = classes, style = style)
   classes <- cut(.data[[var]], breaks = c(breaks$brks), include.lowest = TRUE)
 
-  .data <- mutate(.data, newvar = classes)
+  .data <- dplyr::mutate(.data, newvar = classes)
 
   return(.data)
 
