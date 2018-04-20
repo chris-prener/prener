@@ -4,7 +4,7 @@
 * the `cp_breaks` function is added - this is a wrapper around the `classInt` package's `classIntervals` function along with `cut` for calculating factor variables containing breaks for mapping
 
 ### Breaking Changes
-
+* the `cp_texTable` and `cp_tidyTable` functions have been removed in favor of using `janitor` and `stargazer` for table generation
 
 
 # prener 0.2.0
