@@ -16,7 +16,8 @@ Imports:
     classInt,
     dplyr,
     ggplot2,
-    ggthemes
+    ggthemes,
+    rlang
 Suggests: 
     covr,
     knitr,
