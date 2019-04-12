@@ -61,7 +61,7 @@ cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE){
   }
 
   # rename
-  .data <- dplyr::rename(.data, !!newQ := ...breaks)
+  .data <- dplyr::rename(.data, !!new := ...breaks)
 
   # return result
   return(.data)
