@@ -11,10 +11,11 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/chris-prener/prener
 BugReports: https://github.com/chris-prener/prener/issues
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Imports: 
     classInt,
     dplyr,
+    forcats,
     ggplot2,
     ggthemes,
     rlang

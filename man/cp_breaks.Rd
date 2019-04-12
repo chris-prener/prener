@@ -4,7 +4,7 @@
 \alias{cp_breaks}
 \title{Calculate Map Breaks}
 \usage{
-cp_breaks(.data, var, newvar, classes, style)
+cp_breaks(.data, var, newvar, classes, style, clean_labels = TRUE)
 }
 \arguments{
 \item{.data}{A tbl or sf object}
@@ -16,6 +16,9 @@ cp_breaks(.data, var, newvar, classes, style)
 \item{classes}{The number of breaks or classes to create}
 
 \item{style}{The method for calculating classes, see classInt::classIntervals}
+
+\item{clean_labels}{A logical scalar; if \code{TRUE}, the comma will be converted
+to a dash and the parantheses and brackets will be removed}
 }
 \description{
 This function wraps the process I have been using to construction data classes for

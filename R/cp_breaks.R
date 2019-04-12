@@ -8,6 +8,8 @@
 #' @param newvar The new variable for storing the factor data
 #' @param classes The number of breaks or classes to create
 #' @param style The method for calculating classes, see classInt::classIntervals
+#' @param clean_labels A logical scalar; if \code{TRUE}, the comma will be converted
+#'     to a dash and the parantheses and brackets will be removed
 #'
 #' @importFrom classInt classIntervals
 #' @importFrom dplyr mutate
@@ -18,7 +20,7 @@
 #' @importFrom rlang sym
 #'
 #' @export
-cp_breaks <- function(.data, var, newvar, classes, style){
+cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE){
 
   # save parameters to list
   paramList <- as.list(match.call())
@@ -46,6 +48,17 @@ cp_breaks <- function(.data, var, newvar, classes, style){
 
   # create new variable
   .data <- dplyr::mutate(.data, !!newQ := categories)
+
+  # clean labels
+  if (clean_labels == TRUE){
+
+    .data[!!newQ] %>%
+      forcats::fct_relabel(~ gsub(",", " - ", .x)) %>%
+      forcats::fct_relabel(~ gsub("\\(", "", .x)) %>%
+      forcats::fct_relabel(~ gsub("\\[", "", .x)) %>%
+      forcats::fct_relabel(~ gsub("\\]", "", .x)) -> .data[!!newQ]
+
+  }
 
   # return result
   return(.data)
