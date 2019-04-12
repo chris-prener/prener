@@ -52,11 +52,11 @@ cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE){
   # clean labels
   if (clean_labels == TRUE){
 
-    .data[[!!newQ]] %>%
+    .data[[!!new]] %>%
       forcats::fct_relabel(~ gsub(",", " - ", .x)) %>%
       forcats::fct_relabel(~ gsub("\\(", "", .x)) %>%
       forcats::fct_relabel(~ gsub("\\[", "", .x)) %>%
-      forcats::fct_relabel(~ gsub("\\]", "", .x)) -> .data[[!!newQ]]
+      forcats::fct_relabel(~ gsub("\\]", "", .x)) -> .data[[!!new]]
 
   }
 
