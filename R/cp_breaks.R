@@ -20,7 +20,7 @@
 #' @importFrom rlang sym
 #'
 #' @export
-cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE){
+cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE, dig_lab = 10){
 
   # save parameters to list
   paramList <- as.list(match.call())
@@ -44,24 +44,21 @@ cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE){
 
   # calculate breaks and categories
   breaks <- classInt::classIntervals(.data[[refQ]], n = classes, style = style)
-  categories <- cut(.data[[refQ]], breaks = c(breaks$brks), include.lowest = TRUE)
+  categories <- cut(.data[[refQ]], breaks = c(breaks$brks), include.lowest = TRUE, dig.lab = dig_lab)
 
   # create new variable
-  .data <- dplyr::mutate(.data, ...breaks = categories)
+  .data <- dplyr::mutate(.data, !!newQ = categories)
 
   # clean labels
   if (clean_labels == TRUE){
 
-    .data$...breaks %>%
+    .data[[newQ]] %>%
       forcats::fct_relabel(~ gsub(",", " - ", .x)) %>%
       forcats::fct_relabel(~ gsub("\\(", "", .x)) %>%
       forcats::fct_relabel(~ gsub("\\[", "", .x)) %>%
-      forcats::fct_relabel(~ gsub("\\]", "", .x)) -> .data$...breaks
+      forcats::fct_relabel(~ gsub("\\]", "", .x)) -> .data[[newQ]]
 
   }
-
-  # rename
-  .data <- dplyr::rename(.data, !!new := ...breaks)
 
   # return result
   return(.data)
