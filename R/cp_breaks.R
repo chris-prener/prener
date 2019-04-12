@@ -47,7 +47,7 @@ cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE, d
   categories <- cut(.data[[refQ]], breaks = c(breaks$brks), include.lowest = TRUE, dig.lab = dig_lab)
 
   # create new variable
-  .data <- dplyr::mutate(.data, !!newQ = categories)
+  .data <- dplyr::mutate(.data, !!newQ := categories)
 
   # clean labels
   if (clean_labels == TRUE){
