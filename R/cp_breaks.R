@@ -47,18 +47,21 @@ cp_breaks <- function(.data, var, newvar, classes, style, clean_labels = TRUE){
   categories <- cut(.data[[refQ]], breaks = c(breaks$brks), include.lowest = TRUE)
 
   # create new variable
-  .data <- dplyr::mutate(.data, !!newQ := categories)
+  .data <- dplyr::mutate(.data, ...breaks = categories)
 
   # clean labels
   if (clean_labels == TRUE){
 
-    .data[[!!new]] %>%
+    .data$...breaks %>%
       forcats::fct_relabel(~ gsub(",", " - ", .x)) %>%
       forcats::fct_relabel(~ gsub("\\(", "", .x)) %>%
       forcats::fct_relabel(~ gsub("\\[", "", .x)) %>%
-      forcats::fct_relabel(~ gsub("\\]", "", .x)) -> .data[[!!new]]
+      forcats::fct_relabel(~ gsub("\\]", "", .x)) -> .data$...breaks
 
   }
+
+  # rename
+  .data <- dplyr::rename(.data, !!newQ = ...breaks)
 
   # return result
   return(.data)
